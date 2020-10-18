@@ -122,10 +122,16 @@ header {
         }
         .main-nav-items-wrap {
             float: left;
-            max-width: calc(100% - #{$side-nav-width});
             @include flex-row();
             justify-content: space-between;
             width: 100%;
+            max-width: calc(100% - #{$side-nav-width-shrink});
+            transition: max-width 0.4s;
+
+            &.active {
+                max-width: calc(100% - #{$side-nav-width});
+                transition: max-width 0.4s;
+            }
 
             .main-selections {
                 float: left;
@@ -193,18 +199,24 @@ header {
         }
 
         .side-nav {
-            min-width: $side-nav-width;
+            min-width: $side-nav-width-shrink;
             float: left;
+            transition: min-width 0.4s;
+
+            &.active {
+                min-width: $side-nav-width;
+            }
             .side-nav-items-wrap {
                 float: left;
                 position: fixed;
-                left: 0px;
-                top: $header-height + 10;
+                left: 9px;
+                top: $header-height + $header-height + 10;
                 @include flex-column();
                 align-items: baseline;
-                width: $side-nav-width;
+                width: $side-nav-width-shrink;
 
                 &.active {
+                    width: $side-nav-width;
                     .side-nav-item {
                         .side-nav-text {
                             display: block;
@@ -256,6 +268,7 @@ header {
                         float: left;
                         margin-left: 10px;
                         display: none;
+                        animation: slideFromLeftToRight 0.6s 1;
                     }
                 }
             }
@@ -310,6 +323,9 @@ header {
 
             .main-nav-items-wrap {
                 max-width: 100%;
+                &.active {
+                    max-width: 100%;
+                }
             }
 
             .main-container {
@@ -375,7 +391,7 @@ header {
                         flex-direction: row;
                         justify-content: flex-start;
                         flex-wrap: wrap;
-                        margin-left: -10px;
+                        margin-left: -20px;
 
                         &.active {
                             display: flex !important;

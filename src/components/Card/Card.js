@@ -11,7 +11,7 @@ import { ReactComponent as Positive } from './../../assets/svg/Positive.svg';
 import { ReactComponent as Negative } from './../../assets/svg/Negative.svg';
 import { ReactComponent as Neutral } from './../../assets/svg/Neutral.svg';
 
-export default function Card({ data, isShortView }) {
+function Card({ data, isShortView }) {
     function getColorCodeClass(tonality) {
         if (tonality < 0.1) return ' red-card';
         //negative
@@ -113,3 +113,5 @@ export default function Card({ data, isShortView }) {
         </div>
     );
 }
+
+export default React.memo(Card);

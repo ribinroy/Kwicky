@@ -20,7 +20,7 @@ import { ReactComponent as Papers } from './../../assets/svg/papers.svg';
 import { ReactComponent as Upload } from './../../assets/svg/upload.svg';
 import { ReactComponent as BPO } from './../../assets/svg/BPO.svg';
 
-export default function Header() {
+export default function Header({ setIsMaxWidth }) {
     const contextData = useContext(AdminContext);
     const [isHanburgerOpened, setHanburger] = useState(false);
     const [selectedView, setSelectedView] = useState('TV');
@@ -41,6 +41,9 @@ export default function Header() {
         setView(); //load initial data
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+    useEffect(() => {
+        setIsMaxWidth(!isHanburgerOpened);
+    }, [isHanburgerOpened, setIsMaxWidth]);
     return (
         <header>
             <div className='top-level'>
@@ -68,7 +71,10 @@ export default function Header() {
             </div>
             <div className='second-level'>
                 <div className='main-container'>
-                    <div className='side-nav'>
+                    <div
+                        className={
+                            'side-nav ' + (isHanburgerOpened ? 'active' : '')
+                        }>
                         <Hamburger
                             className={
                                 'hamburger-icon ' +
@@ -123,7 +129,11 @@ export default function Header() {
                             <div className='triangle'></div>
                         </div>
                     </div>
-                    <div className='main-nav-items-wrap'>
+                    <div
+                        className={
+                            'main-nav-items-wrap ' +
+                            (isHanburgerOpened ? 'active' : '')
+                        }>
                         <div className='main-selections'>
                             <div
                                 onClick={() => setView('All')}

@@ -7,6 +7,12 @@
     float: left;
     overflow: auto;
     height: calc(100vh - 2 * #{$header-height});
+    transition: width 0.4s, margin-left 0.4s;
+
+    &.active {
+        width: calc(100% - #{$side-nav-width-shrink} - 10px);
+        margin-left: $side-nav-width-shrink + 10px;
+    }
 
     .list-data-wrap {
         float: left;
@@ -239,8 +245,8 @@
 
 @media only screen and (max-width: $breakpoint-xs) {
     .main-content-wrap {
-        margin-left: 0px;
-        width: 100%;
+        margin-left: 0px !important;
+        width: 100% !important;
 
         .list-data-wrap {
             margin-top: 0px;

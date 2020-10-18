@@ -7,14 +7,15 @@ import { ReactComponent as Share } from './../../assets/svg/Share.svg';
 import { ReactComponent as ViewMain } from './../../assets/svg/View Main.svg';
 import { ReactComponent as ViewSmall } from './../../assets/svg/View Small.svg';
 
-export default function MainContent() {
+export default function MainContent({ isMaxWidth }) {
     const contextData = useContext(AdminContext);
     const [isShortView, setShortView] = useState(false);
     const [date, setDate] = useState(new Date());
 
     return (
         <div className='main-container'>
-            <div className='main-content-wrap'>
+            <div
+                className={'main-content-wrap ' + (isMaxWidth ? 'active' : '')}>
                 <div className='banner-information-wrap md-only'>
                     <div className='text-info'>
                         <div className='date'>TODAY</div>
