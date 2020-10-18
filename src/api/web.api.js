@@ -10,7 +10,7 @@ export function loadData(type, doAfter) {
     var API_URL = '';
     switch (type) {
         case 'All':
-            API_URL = WEB_API;
+            API_URL = 'All';
             break;
         case 'Print':
             API_URL = PRINT_API;
@@ -29,13 +29,36 @@ export function loadData(type, doAfter) {
             break;
     }
     if (API_URL !== '')
-        axios
-            .get(API_URL, {})
-            .then((response) => {
-                if (doAfter !== undefined) doAfter(response.data, type);
-            })
-            .catch((err) => {
-                handleError(err.response);
-                if (doAfter !== undefined) doAfter(false);
-            });
+        if (API_URL === 'All') {
+            axios
+                .all([
+                    axios.get(WEB_API, {}),
+                    axios.get(PRINT_API, {}),
+                    axios.get(SOCIAL_API, {}),
+                    axios.get(BROADCAST_API, {}),
+                ])
+                .then(
+                    axios.spread((data1, data2, data3, data4) => {
+                        // output of req.
+                        const concatedData = data1.data
+                            .concat(data2.data)
+                            .concat(data3.data)
+                            .concat(data4.data);
+                        if (doAfter !== undefined) doAfter(concatedData, type);
+                    })
+                )
+                .catch((err) => {
+                    handleError(err.response);
+                    if (doAfter !== undefined) doAfter(false);
+                });
+        } else
+            axios
+                .get(API_URL, {})
+                .then((response) => {
+                    if (doAfter !== undefined) doAfter(response.data, type);
+                })
+                .catch((err) => {
+                    handleError(err.response);
+                    if (doAfter !== undefined) doAfter(false);
+                });
 }

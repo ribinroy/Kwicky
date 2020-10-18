@@ -27,6 +27,8 @@ export default function Header() {
 
     function setView(type) {
         if (contextData.isLoading && contextData.data.length > 0) return false;
+        if (type === selectedView) return false;
+
         type = type === undefined ? selectedView : type;
         setSelectedView(type);
         contextData.setIsLoading(true);
@@ -91,7 +93,7 @@ export default function Header() {
                                 <Person />
                                 <div className='side-nav-text'>Influencer</div>
                             </div>
-                            <div className='side-nav-item'>
+                            <div className='side-nav-item plus-bottom'>
                                 <Record />
                                 <div className='side-nav-text'>Analysis</div>
                             </div>

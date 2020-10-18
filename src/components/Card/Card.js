@@ -7,32 +7,55 @@ import { ReactComponent as Share } from './../../assets/svg/share internal.svg';
 import { ReactComponent as Caption } from './../../assets/svg/caption.svg';
 import { ReactComponent as Info } from './../../assets/svg/info.svg';
 import { ReactComponent as Reader } from './../../assets/svg/News Reader.svg';
+import { ReactComponent as Positive } from './../../assets/svg/Positive.svg';
+import { ReactComponent as Negative } from './../../assets/svg/Negative.svg';
+import { ReactComponent as Neutral } from './../../assets/svg/Neutral.svg';
 
 export default function Card({ data, isShortView }) {
-    debugger;
+    function getColorCodeClass(tonality) {
+        if (tonality < 0.1) return ' red-card';
+        //negative
+        else if (tonality > 0.3) return ' green-card';
+        //positive
+        else return ' neutral-card'; //neutral
+    }
+
     return (
         <div
             className={
-                'card-main ' + (isShortView ? 'table-view table-row' : '')
+                'card-main ' +
+                (isShortView ? 'table-view table-row' : '') +
+                getColorCodeClass(data.overall_tonality)
             }>
             <div className='left-icons-wrap checkbox-items table-row-item '>
+                <div className='function-key-item xs-only triangle-wrap'>
+                    <Positive className='news-status positive' />
+                    <Negative className='news-status negative' />
+                    <Neutral className='news-status neutral' />
+                </div>
                 <div className='function-key-item check-box-item'>
                     <input type='checkbox' className='function-key' />
                 </div>
                 <div className='function-key-item '>
-                    <Star className='function-key' />
+                    <Star title='Mark Star' className='function-key' />
                 </div>
                 <div className='function-key-item'>
-                    <Info className='function-key' />
+                    <Info title='Information' className='function-key' />
                 </div>
                 <div className='function-key-item'>
-                    <Download className='function-key' />
+                    <a
+                        href={data.source_link}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='function-key'>
+                        <Download title='Download' className='function-key' />
+                    </a>
                 </div>
                 <div className='function-key-item'>
-                    <Share className='function-key' />
+                    <Share title='Share' className='function-key' />
                 </div>
                 <div className='function-key-item'>
-                    <Caption className='function-key' />
+                    <Caption title='Caption' className='function-key' />
                 </div>
             </div>
             {!isShortView && (
@@ -40,13 +63,13 @@ export default function Card({ data, isShortView }) {
                     <div className='title-wrap'>
                         <div className='main-heading'>{data.headline}</div>
                         <div className='sub-heading'>
-                            {data.genre} | {data.location} | {data.language}
+                            {data.publish_source} | {data.location} |{' '}
+                            {data.language}
                         </div>
                         <div className='extras'>
                             <Reader />
                             <div className='numerals'>
-                                <span>98</span>
-                                <span>000</span>
+                                <span>{data.circulation}</span>
                             </div>
                         </div>
                     </div>
@@ -67,16 +90,18 @@ export default function Card({ data, isShortView }) {
                     </div>
                     <div
                         className='table-data table-row-item edition'
-                        title={data.location}>
-                        <span>{data.location}</span>
+                        title={data.edition}>
+                        <span>{data.edition}</span>
                     </div>
                     <div
                         className='table-data table-row-item reach'
-                        title={data.overall_coverage}>
-                        <span>{data.overall_coverage}</span>
+                        title={data.circulation}>
+                        <span>{data.circulation}</span>
                     </div>
-                    <div className='table-data table-row-item pg' title={'XX'}>
-                        <span>XX</span>
+                    <div
+                        className='table-data table-row-item pg'
+                        title={data.page_number}>
+                        <span>{data.page_number}</span>
                     </div>
                     <div
                         className='table-data table-row-item language'

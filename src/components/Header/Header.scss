@@ -122,7 +122,7 @@ header {
         }
         .main-nav-items-wrap {
             float: left;
-            max-width: calc(100% - $side-nav-width);
+            max-width: calc(100% - #{$side-nav-width});
             @include flex-row();
             justify-content: space-between;
             width: 100%;
@@ -218,6 +218,18 @@ header {
                     width: 100%;
                     margin-bottom: 5px;
                     cursor: pointer;
+                    position: relative;
+
+                    &.plus-bottom {
+                        background-attachment: fixed;
+                        :before {
+                            content: '+';
+                            position: absolute;
+                            right: 20px;
+                            font-size: 20px;
+                            color: $dark-grey;
+                        }
+                    }
 
                     &:hover svg *,
                     &:hover svg {
@@ -295,6 +307,10 @@ header {
         .second-level {
             min-height: $header-height;
             height: auto;
+
+            .main-nav-items-wrap {
+                max-width: 100%;
+            }
 
             .main-container {
                 flex-direction: row-reverse !important;

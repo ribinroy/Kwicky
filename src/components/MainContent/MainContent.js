@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import Moment from 'react-moment';
 import './MainContent.scss';
 import AdminContext from './../../store/Context';
 import Card from './../Card/Card';
@@ -9,6 +10,7 @@ import { ReactComponent as ViewSmall } from './../../assets/svg/View Small.svg';
 export default function MainContent() {
     const contextData = useContext(AdminContext);
     const [isShortView, setShortView] = useState(false);
+    const [date, setDate] = useState(new Date());
 
     return (
         <div className='main-container'>
@@ -20,14 +22,22 @@ export default function MainContent() {
                     </div>
                     <div className='filter-functions'>
                         <div className='date-selections'>
-                            <div className='custom-date'>
+                            <div
+                                className='custom-date'
+                                onClick={() =>
+                                    setDate(
+                                        new Date(date).setDate(
+                                            new Date(date).getDate() + 1
+                                        )
+                                    )
+                                }>
                                 <div className='triangle'></div>
                                 CUSTOM DATES
                             </div>
                             <div className='current-selected-date'>
-                                <span>04</span>
-                                <span>September</span>
-                                <span>2020</span>
+                                <Moment format='DD'>{date}</Moment>
+                                <Moment format='MMMM'>{date}</Moment>
+                                <Moment format='YYYY'>{date}</Moment>
                             </div>
                         </div>
                         <div className='functional-items-wrap'>
@@ -43,18 +53,22 @@ export default function MainContent() {
                         </div>
                     </div>
                 </div>
+                <div className='selected-dates md-only'>
+                    SEP 04 2020 - SEP 07 2020
+                </div>
                 <div className='bottom-text'>PRAHLAD JOSHI MOC</div>
 
                 <div className='current-selected-date-mobile xs-only'>
-                    <span>04</span>
-                    <span>September</span>
-                    <span>2020</span>
+                    <Moment format='DD'>{date}</Moment>
+                    <Moment format='MMMM'>{date}</Moment>
+                    <Moment format='YYYY'>{date}</Moment>
                 </div>
                 {contextData.isLoading && <Loader />}
                 {!contextData.isLoading && (
                     <RenderListInfo
                         array={contextData.data}
                         isShortView={isShortView}
+                        dateSelected={date}
                     />
                 )}
             </div>
@@ -66,7 +80,7 @@ function Loader() {
     return <div className='loader'>Loading.. Please Wait..</div>;
 }
 
-function RenderListInfo({ array, isShortView }) {
+function RenderListInfo({ array, isShortView, date }) {
     return (
         <div className='list-data-wrap'>
             {isShortView && (

@@ -169,7 +169,7 @@
                     margin-left: 15px;
                     color: #000;
 
-                    span {
+                    time {
                         padding: 4px 10px 1px 10px;
 
                         &:nth-child(3) {
@@ -220,6 +220,16 @@
         line-height: 1;
     }
 
+    .selected-dates {
+        float: left;
+        padding: 4px 10px 0px 10px;
+        line-height: 1;
+        margin-top: 3px;
+        color: $black;
+        background: $light-blue;
+        border-radius: $border-radius;
+    }
+
     .loader {
         float: left;
         font-size: 38px;
@@ -265,7 +275,7 @@
             padding-top: 10px;
             padding-right: 15px;
 
-            span {
+            time {
                 padding: 0px 5px 0px 5px;
                 line-height: 1;
 

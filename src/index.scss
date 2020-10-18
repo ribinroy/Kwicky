@@ -37,8 +37,25 @@ div#root {
 @font-face {
     font-family: 'Teko-Light';
     font-style: normal;
-    src: url('assets/fonts/Teko/Teko-Light.ttf'); /* IE9*/
-    //   src: url("Fonts/Axiforma Bold/Axiforma Bold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    src: url('assets/fonts/Teko/Teko-Light.ttf');
+}
+
+@font-face {
+    font-family: 'BarlowCondensed-Regular';
+    font-style: normal;
+    src: url('assets/fonts/Barlow_Condensed/BarlowCondensed-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'BarlowCondensed-SemiBold';
+    font-style: normal;
+    src: url('assets/fonts/Barlow_Condensed/BarlowCondensed-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'BarlowCondensed-Medium';
+    font-style: normal;
+    src: url('assets/fonts/Barlow_Condensed/BarlowCondensed-Medium.ttf');
 }
 
 //-----------------styles used through out the page-----------------
