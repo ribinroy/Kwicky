@@ -100,7 +100,7 @@ function RenderListInfo({ array, isShortView, date }) {
             )}
             {array && array.length > 0
                 ? array.map((el, index) => {
-                      return (
+                      return index <= array.length ? (
                           <Card
                               key={
                                   el._id.$oid !== undefined
@@ -110,6 +110,8 @@ function RenderListInfo({ array, isShortView, date }) {
                               data={el}
                               isShortView={isShortView}
                           />
+                      ) : (
+                          ''
                       );
                   })
                 : ''}
