@@ -1,0 +1,113 @@
+@import './Variables.scss';
+
+html {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: 'Teko-Light', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Teko-Light';
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+div#root * {
+    box-sizing: border-box;
+    font-family: 'Teko-Light';
+}
+
+div#root {
+    float: left;
+    width: 100%;
+    height: 100%;
+    min-width: 1200px;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: 'Teko-Light';
+    font-style: normal;
+    src: url('assets/fonts/Teko/Teko-Light.ttf'); /* IE9*/
+    //   src: url("Fonts/Axiforma Bold/Axiforma Bold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+}
+
+//-----------------styles used through out the page-----------------
+.blue-text {
+    color: $blue;
+}
+
+select.drop-down {
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    padding: 3px 8px 0px 8px;
+    font-size: 16px;
+    margin-bottom: 0.5px;
+}
+
+.main-container {
+    float: left;
+    width: 100%;
+    height: 100%;
+    max-width: 1365px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+label.check-box-item {
+    float: left;
+    @include flex-row();
+    margin-left: 20px;
+    cursor: pointer;
+
+    input[type='checkbox'] {
+        margin: 0;
+        width: 14px;
+        height: 20px;
+    }
+
+    .checkbox-text {
+        float: left;
+        padding-top: 2px;
+        margin-left: 4px;
+    }
+}
+
+svg * {
+    stroke: none !important;
+}
+
+@media only screen and (min-width: $breakpoint-xs) {
+    .xs-only {
+        display: none !important;
+    }
+}
+@media only screen and (max-width: $breakpoint-xs) {
+    .xs-only {
+        display: block !important;
+    }
+
+    .md-only {
+        display: none !important;
+    }
+
+    div#root {
+        float: left;
+        width: 100%;
+        height: 100%;
+        min-width: auto;
+        overflow: auto;
+    }
+
+    .main-container {
+    }
+}

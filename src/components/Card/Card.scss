@@ -1,0 +1,189 @@
+@import '../../variables.scss';
+
+.card-main {
+    float: left;
+    width: calc(100% - 10px);
+    border: 1px solid $grey;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    @include flex-row();
+    padding: 3px 15px 3px 5px;
+    margin-right: 10px;
+    border-left: 8px solid $red;
+
+    &.table-view {
+        border-left: 1px solid $grey;
+        justify-content: flex-start;
+        padding: 0;
+
+        &:hover {
+            border-color: $red;
+            background-color: $light-red;
+        }
+
+        .left-icons-wrap {
+            padding-right: 0px;
+            justify-content: space-around !important;
+
+            .function-key-item {
+                width: auto !important;
+                margin: 0px 3px;
+                @include flex-row();
+
+                .function-key {
+                    margin: 2px 0;
+                }
+            }
+        }
+
+        .table-row-item {
+            align-self: stretch;
+            padding: 0 2.1px !important;
+            @include flex-row();
+            justify-content: flex-start;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            span {
+                padding: 3px 5px 0px 5px;
+                float: left;
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            &.checkbox-items {
+                align-self: center !important;
+                padding-left: 2px;
+                padding-right: 2px;
+                justify-content: center;
+            }
+        }
+    }
+
+    .left-icons-wrap {
+        float: left;
+        width: 90px;
+        @include flex-row();
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        height: 100%;
+        padding-right: 15px;
+
+        .function-key-item {
+            width: calc(33.33% - 6px);
+            margin: 3px;
+            @include flex-row();
+            cursor: pointer;
+
+            .function-key {
+                width: 15px;
+                height: 15px;
+                max-width: 20px;
+                margin-bottom: 5px;
+            }
+
+            svg.function-key * {
+                stroke: $dark-grey !important;
+            }
+
+            svg.function-key:hover * {
+                stroke: $main-color !important;
+            }
+        }
+    }
+
+    .content-wrap {
+        width: calc(100% - 90px);
+        float: left;
+
+        .title-wrap {
+            @include flex-row();
+            justify-content: space-between;
+
+            .main-heading {
+                text-transform: uppercase;
+                font-size: 18px;
+                flex: 0.6;
+            }
+            .sub-heading {
+                font-size: 15px;
+                font-weight: 600;
+                color: $black;
+                flex: 0.3;
+            }
+
+            .extras {
+                width: 60px;
+                svg {
+                    float: left;
+                    width: 15px;
+                    margin-right: 10px;
+                }
+
+                .numerals {
+                    float: left;
+
+                    span:nth-child(2) {
+                        margin-left: 3px;
+                        color: $dark-grey;
+                    }
+                }
+            }
+        }
+
+        .description {
+            color: $normal-text;
+        }
+    }
+}
+
+@media only screen and (max-width: $breakpoint-xs) {
+    .card-main {
+        width: 100%;
+        margin: 0px;
+        border: 0px;
+        border-top: 1px solid $grey;
+        border-bottom: 1px solid $grey;
+        border-radius: 0;
+        margin-bottom: 1px;
+        padding: 3px 5px 3px 5px;
+
+        .content-wrap {
+            width: calc(100% - 50px);
+
+            .title-wrap {
+                flex-wrap: wrap;
+                flex-direction: row;
+
+                .main-heading {
+                    width: 100%;
+                    flex: auto;
+                }
+
+                .sub-heading {
+                    width: calc(100% - 60px);
+                    flex: auto;
+                }
+
+                .extras {
+                    width: 60px;
+                }
+            }
+        }
+
+        .left-icons-wrap {
+            width: 50px;
+            .function-key-item {
+                &:not(.check-box-item) {
+                    display: none;
+                }
+
+                &.check-box-item {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

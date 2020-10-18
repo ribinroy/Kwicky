@@ -1,0 +1,286 @@
+@import '../../variables.scss';
+
+.main-content-wrap {
+    margin-left: $side-nav-width;
+    width: calc(100% - #{$side-nav-width});
+    margin-top: $header-height + $header-height;
+    float: left;
+    overflow: auto;
+    height: calc(100vh - 2 * #{$header-height});
+
+    .list-data-wrap {
+        float: left;
+        width: 100%;
+        margin-top: 10px;
+        // max-height: calc(100vh - 210px);
+        // overflow: auto;
+    }
+
+    .table-view {
+        float: left;
+        width: calc(100% - 15px);
+        @include flex-row();
+        justify-content: space-between;
+        margin-right: 10px;
+
+        .checkbox-items {
+            flex: 0.15;
+        }
+
+        .headline {
+            flex: 0.4;
+        }
+
+        .publication {
+            flex: 0.125;
+        }
+
+        .edition {
+            flex: 0.175;
+        }
+
+        .pg {
+            flex: 0.05;
+        }
+
+        .reach {
+            flex: 0.1;
+        }
+
+        .language {
+            flex: 0.1;
+        }
+    }
+
+    .table-row {
+        float: left;
+        width: calc(100% - 15px);
+        @include flex-row();
+        justify-content: space-between;
+        margin-right: 10px;
+        // padding: 3px 5px 0px 0px;
+        border-radius: $border-radius;
+        margin-bottom: 5px;
+
+        &.table-header {
+            background: $main-bg-color;
+
+            .table-row-item {
+                text-transform: uppercase;
+
+                input[type='checkbox'] {
+                    width: 15px;
+                    height: 15px;
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        .table-row-item {
+            border-left: 1px solid $dark-grey;
+            line-height: 1;
+            padding-left: 5px;
+            padding-top: 3px;
+
+            &:first-child {
+                border-left: 0px;
+            }
+        }
+    }
+
+    .banner-information-wrap {
+        float: left;
+        width: 100%;
+        @include flex-row();
+        border-bottom: 1px solid $grey;
+
+        .text-info {
+            @include flex-row();
+            width: 50%;
+            justify-content: flex-start;
+            font-size: 60px;
+            line-height: 1;
+            float: left;
+            padding-top: 5px;
+
+            .date {
+                margin-right: 15px;
+                position: relative;
+                padding-right: 20px;
+                float: left;
+                color: $light-blue;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    height: calc(100% + 0px);
+                    width: 5px;
+                    background: #c7c8ca;
+                    top: -3px;
+                }
+            }
+            .company {
+                color: $main-ast-color;
+            }
+        }
+
+        .filter-functions {
+            @include flex-row();
+            width: 50%;
+            justify-content: space-between;
+
+            .date-selections {
+                @include flex-row();
+
+                .custom-date {
+                    @include flex-row();
+                    background: $main-color;
+                    border-radius: $border-radius;
+                    padding: 4px 10px 1px 22px;
+                    color: #fff;
+                    position: relative;
+                    font-size: 20px;
+                    cursor: pointer;
+                    border: 1px solid $main-color;
+
+                    .triangle {
+                        width: 0;
+                        height: 0;
+                        border-left: 6px solid transparent;
+                        border-right: 6px solid transparent;
+                        border-top: 6px solid #fff;
+                        transform: translate(50%);
+                        margin-top: 2px;
+                        transition: all 0.4s;
+                        position: absolute;
+                        left: 0px;
+                        top: 12px;
+                    }
+                }
+
+                .current-selected-date {
+                    @include flex-row();
+                    background: $main-ast-color;
+                    border-radius: $border-radius;
+                    position: relative;
+                    font-size: 20px;
+                    border: 1px solid $main-color;
+                    margin-left: 15px;
+                    color: #000;
+
+                    span {
+                        padding: 4px 10px 1px 10px;
+
+                        &:nth-child(3) {
+                            color: #fff;
+                            background: $main-color;
+                        }
+
+                        &:nth-child(1) {
+                            border-right: 1px solid $main-color;
+                        }
+                    }
+                }
+            }
+
+            .functional-items-wrap {
+                svg {
+                    width: 30px;
+                    height: 30px;
+                    margin: 0 10px;
+                    cursor: pointer;
+
+                    * {
+                        &:not([fill='#fff']):not([fill='none']) {
+                            fill: $dark-grey;
+                            transition: all 0.1s;
+                        }
+                    }
+
+                    &:hover *,
+                    &.active * {
+                        &:not([fill='#fff']):not([fill='none']) {
+                            fill: $main-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom-text {
+        background: $grey;
+        float: right;
+        color: $dark-blue;
+        font-size: 28px;
+        margin-right: 20px;
+        padding: 2px 22px 1px 100px;
+        border-radius: 0px 0px 10px 10px;
+        line-height: 1;
+    }
+
+    .loader {
+        float: left;
+        font-size: 38px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: $breakpoint-xs) {
+    .main-content-wrap {
+        margin-left: 0px;
+        width: 100%;
+
+        .list-data-wrap {
+            margin-top: 0px;
+        }
+
+        .loader {
+            float: left;
+            font-size: 25px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .bottom-text {
+            background: rgba(0, 0, 0, 0);
+            float: left;
+            padding: 15px;
+            font-size: 25px;
+            color: $blue;
+            padding-top: 10px;
+        }
+
+        .current-selected-date-mobile {
+            @include flex-row();
+            position: relative;
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 15px;
+            color: $dark-blue;
+            float: right;
+            overflow: hidden;
+            height: 32px;
+            padding-top: 10px;
+            padding-right: 15px;
+
+            span {
+                padding: 0px 5px 0px 5px;
+                line-height: 1;
+
+                &:nth-child(3) {
+                    color: $main-color;
+                }
+
+                &:nth-child(1) {
+                    border-right: 1px solid $main-color;
+                }
+
+                &:nth-child(2) {
+                    border-right: 1px solid $blue;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+// variables
+$breakpoint-xxxs: 280px;
+$breakpoint-xxs: 360px;
+$breakpoint-xs: 768px;
+$breakpoint-sm: 992px;
+$breakpoint-md: 1200px;
+
+$header-height: 50px;
+$side-nav-width: 160px;
+// $header-expanded-height: 145px;
+// $main-left-padding: 30px;
+// $main-left-padding-xs: 15px;
+
+$border-radius: 5px;
+
+$main-color: #f06623;
+$main-ast-color: #fdc689;
+
+$main-bg-color: #ececee;
+$main-ast-bg-color: #f5f5f6;
+
+$yellow: #feca0a;
+$red: #ee1d23;
+$green: #60bb46;
+$grey: #c7c8ca;
+$dark-grey: #939598;
+$black: #2c2829;
+$blue: #0082c9;
+$light-blue: #8dd7f7;
+$dark-blue: #023b59;
+$light-red: #fdeae7;
+
+$normal-text: #8d8d90;
+$border-color: #d6d8dc;
+
+// ------------Mixins Definitions------------------
+
+@mixin flex() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-column() {
+    @include flex();
+    flex-direction: column;
+}
+
+@mixin flex-row() {
+    @include flex();
+    flex-direction: row;
+}
+
+@mixin overflow-fix() {
+    overflow-y: hidden !important;
+    overflow-x: hidden;
+}
+
+// -----------end of Mixins-------------
