@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import Moment from 'react-moment';
 import './MainContent.scss';
 import AdminContext from './../../store/Context';
