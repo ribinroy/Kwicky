@@ -61,8 +61,12 @@ header {
             width: auto;
             @include flex-row();
             width: calc(100% - 400px);
-            justify-content: space-around;
+            justify-content: flex-end;
             height: 100%;
+
+            & > * {
+                margin: 0 15px;
+            }
         }
         .search-wrap {
             float: left;
@@ -231,6 +235,12 @@ header {
                     margin-bottom: 5px;
                     cursor: pointer;
                     position: relative;
+
+                    &.active svg,
+                    &.active svg * {
+                        border-color: $main-color !important;
+                        fill: $main-color !important;
+                    }
 
                     &.plus-bottom {
                         background-attachment: fixed;

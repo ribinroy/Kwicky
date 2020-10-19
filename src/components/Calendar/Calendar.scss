@@ -1,0 +1,122 @@
+@import 'src/Variables.scss';
+
+.calendar-main-wrap {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 10px);
+    border: 1px solid $main-color;
+    width: 400px;
+    background: #fff;
+    padding: 10px;
+    color: #000;
+    border-radius: $border-radius;
+    cursor: default;
+
+    .calendar-top-banner {
+        width: 100%;
+        float: left;
+
+        .date-box {
+            width: auto;
+            float: right;
+            margin: 0 5px;
+            @include flex-row();
+            border-radius: $border-radius;
+            position: relative;
+            font-size: 16px;
+            border: 1px solid $grey;
+            color: $blue;
+
+            span {
+                padding: 4px 8px 1px 8px;
+                border-right: 1px solid $main-color;
+                text-transform: uppercase;
+                font-weight: bold;
+
+                &:last-child {
+                    border-right: 0px solid $main-color;
+                }
+            }
+
+            &:first-child {
+                float: left;
+            }
+        }
+    }
+
+    .calendar-secondary-banner {
+        @include flex-row();
+        width: 100%;
+        float: left;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .submit-button {
+        text-transform: uppercase;
+        clear: both;
+        width: auto;
+        float: left;
+        text-align: center;
+        color: #fff;
+        line-height: 1;
+        background-color: $dark-blue;
+        padding: 5px 25px 3px 25px;
+        margin-top: 5px;
+        border-radius: $border-radius;
+        transform: translateX(-50%);
+        margin-left: 50%;
+    }
+
+    .calendar-package-wrap {
+        float: left;
+        width: 100%;
+        margin-top: 0px;
+        text-transform: uppercase;
+
+        .react-calendar__month-view__weekdays__weekday {
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .react-calendar__month-view__weekdays__weekday abbr {
+            text-decoration: none;
+        }
+
+        button.react-calendar__tile.react-calendar__month-view__days__day,
+        button.react-calendar__tile.react-calendar__year-view__months__month,
+        button.react-calendar__tile.react-calendar__decade-view__years__year,
+        button.react-calendar__tile.react-calendar__century-view__decades__decade {
+            background: #fff;
+            border-radius: $border-radius;
+            border: 1px solid $grey;
+            margin: 1px;
+            max-width: calc(14.285% - 2px) !important;
+            padding: 4px 4px;
+        }
+
+        button.react-calendar__tile.react-calendar__year-view__months__month,
+        button.react-calendar__tile.react-calendar__decade-view__years__year,
+        button.react-calendar__tile.react-calendar__century-view__decades__decade {
+            max-width: calc(33.3333% - 2px) !important;
+        }
+
+        button.react-calendar__navigation__label,
+        button.react-calendar__navigation__arrow {
+            background: $main-color;
+            border: 0px;
+            padding: 4px 4px;
+            color: #fff;
+            font-size: 19px;
+        }
+
+        button.react-calendar__tile--active {
+            background: $blue !important;
+            color: #fff;
+        }
+
+        .react-calendar__navigation {
+            background: $main-color;
+        }
+    }
+}

@@ -1,15 +1,17 @@
 import React, { useContext, useState } from 'react';
-import Moment from 'react-moment';
 import './MainContent.scss';
+import RenderListInfo from './RenderListInfo';
+import Calendar from './../Calendar/Calendar';
+import Moment from 'react-moment';
 import AdminContext from './../../store/Context';
-import Card from './../Card/Card';
 import { ReactComponent as Share } from './../../assets/svg/Share.svg';
 import { ReactComponent as ViewMain } from './../../assets/svg/View Main.svg';
 import { ReactComponent as ViewSmall } from './../../assets/svg/View Small.svg';
 
-export default function MainContent({ isMaxWidth }) {
+function MainContent({ isMaxWidth }) {
     const contextData = useContext(AdminContext);
     const [isShortView, setShortView] = useState(false);
+    const [showCalendar, setCalendarShow] = useState(false);
     const [date, setDate] = useState(new Date());
 
     return (
@@ -23,17 +25,15 @@ export default function MainContent({ isMaxWidth }) {
                     </div>
                     <div className='filter-functions'>
                         <div className='date-selections'>
-                            <div
-                                className='custom-date'
-                                onClick={() =>
-                                    setDate(
-                                        new Date(date).setDate(
-                                            new Date(date).getDate() + 1
-                                        )
-                                    )
-                                }>
-                                <div className='triangle'></div>
-                                CUSTOM DATES
+                            <div className='custom-date'>
+                                <span
+                                    onClick={() =>
+                                        setCalendarShow(!showCalendar)
+                                    }>
+                                    <div className='triangle'></div>
+                                    CUSTOM DATES
+                                </span>
+                                {showCalendar && <Calendar />}
                             </div>
                             <div className='current-selected-date'>
                                 <Moment format='DD'>{date}</Moment>
@@ -81,41 +81,4 @@ function Loader() {
     return <div className='loader'>Loading.. Please Wait..</div>;
 }
 
-function RenderListInfo({ array, isShortView, date }) {
-    return (
-        <div className='list-data-wrap'>
-            {isShortView && (
-                <div className='table-row table-header table-view md-only'>
-                    <div className='table-row-item checkbox-items'>
-                        <input type='checkbox' />
-                    </div>
-                    <div className='table-row-item headline'>Headline</div>
-                    <div className='table-row-item publication'>
-                        Publication
-                    </div>
-                    <div className='table-row-item edition'>Edition</div>
-                    <div className='table-row-item reach'>Reach (000)s</div>
-                    <div className='table-row-item pg'>PG#</div>
-                    <div className='table-row-item language'>Language</div>
-                </div>
-            )}
-            {array && array.length > 0
-                ? array.map((el, index) => {
-                      return index <= array.length ? (
-                          <Card
-                              key={
-                                  el._id.$oid !== undefined
-                                      ? el._id.$oid
-                                      : index
-                              }
-                              data={el}
-                              isShortView={isShortView}
-                          />
-                      ) : (
-                          ''
-                      );
-                  })
-                : ''}
-        </div>
-    );
-}
+export default React.memo(MainContent);

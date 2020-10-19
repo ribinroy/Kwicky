@@ -156,6 +156,7 @@
     .content-wrap {
         width: calc(100% - 90px);
         float: left;
+        align-self: stretch;
 
         .title-wrap {
             @include flex-row();
@@ -166,12 +167,12 @@
                 font-size: 18px;
                 flex: 0.6;
                 color: $main-color;
-                font-weight: 600;
+                // font-weight: 600;
                 font-family: 'BarlowCondensed-SemiBold' !important;
             }
             .sub-heading {
-                font-size: 15px;
-                font-weight: 600;
+                font-size: 16px;
+                // font-weight: 600;
                 color: $black;
                 flex: 0.3;
                 font-family: 'BarlowCondensed-Medium' !important;
@@ -199,6 +200,9 @@
         .description {
             color: $normal-text;
             font-family: 'BarlowCondensed-Regular' !important;
+            line-height: 1;
+            font-size: 17px;
+            margin-top: 2px;
         }
     }
 }

@@ -135,6 +135,7 @@
             @include flex-row();
             width: 50%;
             justify-content: space-between;
+            margin-right: 15px;
 
             .date-selections {
                 @include flex-row();
@@ -265,7 +266,7 @@
             padding: 15px;
             font-size: 25px;
             color: $blue;
-            padding-top: 10px;
+            padding-bottom: 10px;
         }
 
         .current-selected-date-mobile {
@@ -277,9 +278,9 @@
             color: $dark-blue;
             float: right;
             overflow: hidden;
-            height: 32px;
-            padding-top: 10px;
-            padding-right: 15px;
+            height: 40px;
+            padding-top: 15px;
+            // padding-right: 15px;
 
             time {
                 padding: 0px 5px 0px 5px;

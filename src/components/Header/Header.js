@@ -20,10 +20,11 @@ import { ReactComponent as Papers } from './../../assets/svg/papers.svg';
 import { ReactComponent as Upload } from './../../assets/svg/upload.svg';
 import { ReactComponent as BPO } from './../../assets/svg/BPO.svg';
 
-export default function Header({ setIsMaxWidth }) {
+function Header({ setIsMaxWidth }) {
     const contextData = useContext(AdminContext);
     const [isHanburgerOpened, setHanburger] = useState(false);
     const [selectedView, setSelectedView] = useState('TV');
+    const [selectedNavItem, setSelectedNav] = useState('Updates');
 
     function setView(type) {
         if (contextData.isLoading && contextData.data.length > 0) return false;
@@ -87,35 +88,84 @@ export default function Header({ setIsMaxWidth }) {
                                 'side-nav-items-wrap ' +
                                 (isHanburgerOpened ? 'active' : '')
                             }>
-                            <div className='side-nav-item'>
+                            <div
+                                className={
+                                    'side-nav-item ' +
+                                    (selectedNavItem === 'Updates'
+                                        ? 'active'
+                                        : '')
+                                }
+                                onClick={() => setSelectedNav('Updates')}>
                                 <Calendar />
                                 <div className='side-nav-text'>Updates</div>
                             </div>
-                            <div className='side-nav-item'>
+                            <div
+                                className={
+                                    'side-nav-item ' +
+                                    (selectedNavItem === 'Archive'
+                                        ? 'active'
+                                        : '')
+                                }
+                                onClick={() => setSelectedNav('Archive')}>
                                 <Files />
                                 <div className='side-nav-text'>Archive</div>
                             </div>
-                            <div className='side-nav-item'>
+                            <div
+                                className={
+                                    'side-nav-item ' +
+                                    (selectedNavItem === 'Influencer'
+                                        ? 'active'
+                                        : '')
+                                }
+                                onClick={() => setSelectedNav('Influencer')}>
                                 <Person />
                                 <div className='side-nav-text'>Influencer</div>
                             </div>
-                            <div className='side-nav-item plus-bottom'>
+                            <div
+                                className={
+                                    'side-nav-item plus-bottom ' +
+                                    (selectedNavItem === 'Analysis'
+                                        ? 'active'
+                                        : '')
+                                }
+                                onClick={() => setSelectedNav('Analysis')}>
                                 <Record />
                                 <div className='side-nav-text'>Analysis</div>
                             </div>
-                            <div className='side-nav-item'>
+                            <div
+                                className={
+                                    'side-nav-item ' +
+                                    (selectedNavItem === 'Press Release'
+                                        ? 'active'
+                                        : '')
+                                }
+                                onClick={() => setSelectedNav('Press Release')}>
                                 <Papers />
                                 <div className='side-nav-text'>
                                     Press Release
                                 </div>
                             </div>
-                            <div className='side-nav-item'>
+                            <div
+                                className={
+                                    'side-nav-item ' +
+                                    (selectedNavItem === 'Remote Upload'
+                                        ? 'active'
+                                        : '')
+                                }
+                                onClick={() => setSelectedNav('Remote Upload')}>
                                 <Upload />
                                 <div className='side-nav-text'>
                                     Remote Upload
                                 </div>
                             </div>
-                            <div className='side-nav-item'>
+                            <div
+                                className={
+                                    'side-nav-item ' +
+                                    (selectedNavItem === 'Support'
+                                        ? 'active'
+                                        : '')
+                                }
+                                onClick={() => setSelectedNav('Support')}>
                                 <BPO />
                                 <div className='side-nav-text'>Support</div>
                             </div>
@@ -212,3 +262,5 @@ export default function Header({ setIsMaxWidth }) {
         </header>
     );
 }
+
+export default React.memo(Header);
