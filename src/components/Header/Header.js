@@ -9,7 +9,7 @@ import { ReactComponent as Hamburger } from './../../assets/svg/hamburger.svg';
 import { ReactComponent as ALL } from './../../assets/svg/ALL.svg';
 import { ReactComponent as Print } from './../../assets/svg/Print.svg';
 import { ReactComponent as Web } from './../../assets/svg/Web.svg';
-import { ReactComponent as Social } from './../../assets/svg/Social.svg';
+import { ReactComponent as Twitter } from './../../assets/svg/Twitter.svg';
 import { ReactComponent as TV } from './../../assets/svg/TV.svg';
 import { ReactComponent as Mail } from './../../assets/svg/Mail.svg';
 import { ReactComponent as Calendar } from './../../assets/svg/calendar.svg';
@@ -218,8 +218,8 @@ function Header({ setIsMaxWidth }) {
                                     'main-selection-item ' +
                                     (selectedView === 'Social' ? 'active' : '')
                                 }>
-                                <Social />
-                                <div className='blue-text'>SOCIAL</div>
+                                <Twitter />
+                                <div className='blue-text'>Twitter</div>
                             </div>
                             <div
                                 onClick={() => setView('TV')}
@@ -235,9 +235,6 @@ function Header({ setIsMaxWidth }) {
                             </div>
                         </div>
                         <div className='filter-items-wrap'>
-                            <select className='drop-down'>
-                                <option>TODAY</option>
-                            </select>
                             <label className='check-box-item'>
                                 <input type='checkbox' />
                                 <div className='checkbox-text'>

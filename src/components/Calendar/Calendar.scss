@@ -12,6 +12,14 @@
     border-radius: $border-radius;
     cursor: default;
 
+    .options {
+        float: left;
+        width: 100%;
+        margin-top: 10px;
+        @include flex-row();
+        justify-content: space-between;
+    }
+
     .calendar-top-banner {
         width: 100%;
         float: left;

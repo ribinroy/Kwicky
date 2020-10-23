@@ -137,6 +137,21 @@
             justify-content: space-between;
             margin-right: 15px;
 
+            .play-pause-wrap {
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+
+                    * {
+                        fill: $main-color !important;
+                    }
+                }
+            }
+
             .date-selections {
                 @include flex-row();
 
@@ -175,6 +190,7 @@
                     border: 1px solid $main-color;
                     margin-left: 15px;
                     color: #000;
+                    cursor: pointer;
 
                     time {
                         padding: 4px 10px 1px 10px;

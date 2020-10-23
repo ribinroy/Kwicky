@@ -18,6 +18,14 @@ function CalendarWebPart() {
                     <span>2020</span>
                 </div>
             </div>
+            <div className='options'>
+                <div className='option blue-text'>Today</div>
+                <div className='option blue-text'>Reach</div>
+                <div className='option blue-text'>12 Hours</div>
+                <div className='option blue-text'>24 Hours</div>
+                <div className='option blue-text'>36 Hours</div>
+                <div className='option blue-text'>48 hours</div>
+            </div>
             <div className='submit-button'>Submit</div>
             <div className='calendar-secondary-banner'>
                 <div className='blue-text'>SEP 04 2020</div>

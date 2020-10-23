@@ -59,6 +59,30 @@ div#root {
     src: url('assets/fonts/Barlow_Condensed/BarlowCondensed-Medium.ttf');
 }
 
+@font-face {
+    font-family: 'Teko-Medium';
+    font-style: normal;
+    src: url('assets/fonts/Teko/Teko-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Teko-SemiBold';
+    font-style: normal;
+    src: url('assets/fonts/Teko/Teko-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Teko-Regular';
+    font-style: normal;
+    src: url('assets/fonts/Teko/Teko-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Teko-Light';
+    font-style: normal;
+    src: url('assets/fonts/Teko/Teko-Light.ttf');
+}
+
 //-----------------styles used through out the page-----------------
 .blue-text {
     color: $blue;

@@ -160,22 +160,26 @@
 
         .title-wrap {
             @include flex-row();
+            font-family: 'Teko-Medium';
             justify-content: space-between;
 
             .main-heading {
-                text-transform: uppercase;
+                // text-transform: uppercase;
                 font-size: 18px;
                 flex: 0.6;
                 color: $main-color;
                 // font-weight: 600;
-                font-family: 'BarlowCondensed-SemiBold' !important;
+                font-family: 'BarlowCondensed-SemiBold', 'Teko-Medium' !important;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             .sub-heading {
                 font-size: 16px;
                 // font-weight: 600;
                 color: $black;
                 flex: 0.3;
-                font-family: 'BarlowCondensed-Medium' !important;
+                font-family: 'BarlowCondensed-Medium', 'Teko-Regular' !important;
             }
 
             .extras {
@@ -199,10 +203,15 @@
 
         .description {
             color: $normal-text;
-            font-family: 'BarlowCondensed-Regular' !important;
+            font-family: 'BarlowCondensed-Regular', 'Teko-Light' !important;
             line-height: 1;
             font-size: 17px;
             margin-top: 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
     }
 }

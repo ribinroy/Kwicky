@@ -172,6 +172,7 @@ header {
             &.active {
                 svg [fill='#0082c9'] {
                     fill: $blue;
+                    opacity: 1;
                 }
                 .blue-text {
                     color: $black;
@@ -180,6 +181,7 @@ header {
 
             svg {
                 width: 20px;
+                height: 20px;
 
                 & [fill='#0082c9'] {
                     fill: $dark-grey;

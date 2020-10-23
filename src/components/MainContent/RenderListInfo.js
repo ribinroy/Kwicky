@@ -2,8 +2,6 @@ import React from 'react';
 import Card from './../Card/Card';
 
 function RenderListInfo({ array, isShortView, date }) {
-    debugger;
-
     return (
         <div className='list-data-wrap'>
             {isShortView && (
